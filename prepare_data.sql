@@ -65,3 +65,21 @@ WHERE (Area = "01" OR Area = "02" OR Area = "03" OR Area = "04" OR Area = "05" O
 #only choose data from people able to work
 SELECT * FROM `countdownintervewtest`.data_model.prepare_data_table_main
 WHERE (Age = "01" OR Age = "02" OR Age = "03" OR Age = "04" OR Age = "05" OR Age = "06" OR Age = "07" OR Age = "08" OR Age = "09" OR Age = "10" OR Age = "11" OR Age = "12" OR Age = "13" OR Age = "14" OR Age = "15" OR Age = "16" OR Age = "17" OR Age = "18" OR Age = "19" OR Age = "20" OR Age = "21") 
+
+SELECT * #SUM(CAST(Count AS FLOAT64))
+FROM `countdownintervewtest.CDI_test.raw_main_table`
+WHERE Year = "2018" AND Area = "15" AND Age = "999999" AND Sex = "9" AND Ethnic = "9999"
+#total 4699755
+#01 179076
+#02 1571718
+#03 458202
+#04 308499
+#05 47517
+#06 166368
+#07 117561
+#08 238797
+#09 506814
+#12 31575
+#13 599694
+#14 225186
+#15 97467
