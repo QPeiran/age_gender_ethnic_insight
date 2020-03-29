@@ -28,11 +28,31 @@ def create_table(dataset_id,client,SCHEMA,URI,tabel_name):
 
 dataset_name = "CDI_test"  # <-- my dataset's name
 
-schema_lookup = [
-    bigquery.SchemaField("Code", "STRING"),
-    bigquery.SchemaField("Description", "STRING"),
-    bigquery.SchemaField("SortOrder", "STRING"),
+schema_lookup_age = [
+    bigquery.SchemaField("Code_age", "STRING"),
+    bigquery.SchemaField("Description_age", "STRING"),
+    bigquery.SchemaField("SortOrder_age", "STRING"),
     ]
+
+schema_lookup_ethnic = [
+    bigquery.SchemaField("Code_ethnic", "STRING"),
+    bigquery.SchemaField("Description_ethnic", "STRING"),
+    bigquery.SchemaField("SortOrder_ethnic", "STRING"),
+    ]
+
+schema_lookup_sex = [
+    bigquery.SchemaField("Code_sex", "STRING"),
+    bigquery.SchemaField("Description_sex", "STRING"),
+    bigquery.SchemaField("SortOrder_sex", "STRING"),
+    ]
+
+schema_lookup_area = [
+    bigquery.SchemaField("Code_area", "STRING"),
+    bigquery.SchemaField("Description_area", "STRING"),
+    bigquery.SchemaField("SortOrder_area", "STRING"),
+    ]
+
+
 
 #load lookup_age
 URI_lookup_age = "gs://age_sex_ethnic_2018/Age-sex-by-ethnic-group-grouped-total-responses-census-usually-resident-population-counts-2006-2013-2018-Censuses-RC-TA-SA2-DHB/DimenLookupAge8277.csv"
@@ -63,7 +83,7 @@ URI_raw_main = "gs://age_sex_ethnic_2018/Age-sex-by-ethnic-group-grouped-total-r
 raw_main_table = "raw_main_table"
 
 create_table(dataset_name, bq_client, schema_raw_main, URI_raw_main, raw_main_table)
-create_table(dataset_name, bq_client, schema_lookup, URI_lookup_age, lookup_age_table)
-create_table(dataset_name, bq_client, schema_lookup, URI_lookup_ethnic, lookup_ethnic_table)
-create_table(dataset_name, bq_client, schema_lookup, URI_lookup_sex, lookup_sex_table)
-create_table(dataset_name, bq_client, schema_lookup, URI_lookup_area, lookup_area_table)
+create_table(dataset_name, bq_client, schema_lookup_age, URI_lookup_age, lookup_age_table)
+create_table(dataset_name, bq_client, schema_lookup_ethnic, URI_lookup_ethnic, lookup_ethnic_table)
+create_table(dataset_name, bq_client, schema_lookup_sex, URI_lookup_sex, lookup_sex_table)
+create_table(dataset_name, bq_client, schema_lookup_area, URI_lookup_area, lookup_area_table)
