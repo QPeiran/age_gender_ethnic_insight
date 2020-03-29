@@ -4,8 +4,7 @@
 DELETE FROM `countdownintervewtest`.CDI_test.raw_main_table WHERE Count = "..C"
 
 
-#Filter census data from 2018. Choose 
-
+#Filter census data from 2018. Choose Age, Ethnic, Area as analysis factors
 SELECT
   Age, Ethnic, Area, SUM(CAST(Count AS FLOAT64)) AS Count_NEW
  FROM
@@ -23,6 +22,40 @@ LEFT JOIN `countdownintervewtest`.CDI_test.lookup_ethnic_table c
 ON (a.Ethnic = c.Code_ethnic)
 LEFT JOIN `countdownintervewtest`.CDI_test.lookup_area_table d
 ON (a.Area = d.Code_area)
+
+# Align income table's "partial key" with prepared table's "partial key"
+
+SELECT *,
+  CASE Age
+    WHEN '15 to 19' THEN '15-19 years'
+    WHEN '20 to 24' THEN '20-24 years'
+    WHEN '25 to 29' THEN '25-29 years'
+    WHEN '30 to 34' THEN '30-34 years'
+    WHEN '40 to 44' THEN '40-44 years'
+    WHEN '45 to 49' THEN '45-49 years'
+    WHEN '50 to 54' THEN '50-54 years'
+    WHEN '55 to 59' THEN '55-59 years'
+    WHEN '60 plus' THEN '65+ years'
+  END NEW_Age
+FROM countdownintervewtest.CDI_test.income_table
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#SELECT DISTINCT Description_area
+#FROM `countdownintervewtest.data_model.prepared_main` 
 
 
 
