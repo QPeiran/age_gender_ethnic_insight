@@ -1,11 +1,11 @@
 [
     {
-        "name": "Age",
+        "name": "Area",
         "type": "STRING",
         "mode": "NULLABLE"
     },
     {
-        "name": "Area",
+        "name": "Age",
         "type": "STRING",
         "mode": "NULLABLE"
     },
@@ -21,6 +21,11 @@
     },
     {
         "name": "Value",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Flags",
         "type": "STRING",
         "mode": "NULLABLE"
     }
