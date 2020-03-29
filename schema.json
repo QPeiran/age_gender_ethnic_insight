@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Age",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Area",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Ethnic",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Measures",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Value",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]
