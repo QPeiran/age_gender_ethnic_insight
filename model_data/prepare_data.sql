@@ -5,14 +5,12 @@ DELETE FROM `countdownintervewtest`.CDI_test.raw_main_table WHERE Count = "..C"
 
 
 #Filter census data from 2018. Choose Age, Ethnic, Area as analysis factors
-SELECT
-  Age, Ethnic, Area, SUM(CAST(Count AS FLOAT64)) AS Count_NEW
- FROM
-   `countdownintervewtest`.CDI_test.raw_main_table
- WHERE
-  Year = "2018"
-GROUP BY Age, Ethnic, Area
-
+SELECT * FROM `countdownintervewtest.CDI_test.raw_main_table`
+WHERE (Area IN ("01", "02", "03", "04", "05", "06", "07", "08", "09", "12", "13", "14", "15", "16", "17", "18")
+    AND (Age IN ("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"))
+    AND (Sex = "9") # total sex
+    AND (Ethnic = "9999")   # total ethnic
+    AND (Year = "2018") # year 2018
 
 #Join raw_main_tabel with look_up tables
 SELECT Description_age, Description_ethnic, Description_area, Count_NEW FROM `countdownintervewtest.data_model.prepared_main_table` a
