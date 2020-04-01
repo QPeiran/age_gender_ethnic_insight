@@ -82,15 +82,17 @@ WHERE Year = "2018" AND Area = "15" AND Age = "999999" AND Sex = "9" AND Ethnic 
 #14 225186
 #15 97467
                    
-###                   
-With aggrate_area AS (
-SELECT Age, sum(count) AS count
+### same region granulity
+SELECT Age, sum(count) AS count, "56" AS Area_code
 FROM `scanning-database.test_data_set.test_data_table` 
 Where Area_code IN ("05","06")
 Group by Age
 UNION ALL
-SELECT Age, sum(count) AS count
+SELECT Age, sum(count) AS count, "12161718" AS Area_code
 FROM `scanning-database.test_data_set.test_data_table` 
 Where Area_code IN ("12","16","17","18")
 Group by Age
-)
+UNION ALL
+SELECT Age, count, Area_code
+FROM `scanning-database.test_data_set.test_data_table` 
+Where Area_code NOT IN ("05","06","12","16","17","18")
