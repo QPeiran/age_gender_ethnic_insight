@@ -3,7 +3,7 @@ from google.cloud import bigquery
 # Construct a BigQuery client object.
 bq_client = bigquery.Client()
 
-table_id = "countdownintervewtest.CDI_test.intermedia_table" # intermedia tabel
+table_id = "countdownintervewtest.data_model.model_census_data" # intermedia tabel
 
 job_config = bigquery.QueryJobConfig(destination=table_id, write_disposition="WRITE_TRUNCATE")
 
