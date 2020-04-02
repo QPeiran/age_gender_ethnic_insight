@@ -42,16 +42,6 @@ FROM countdownintervewtest.CDI_test.income_table
 
 
 
-
-
-
-
-
-
-
-
-
-
 #SELECT DISTINCT Description_area
 #FROM `countdownintervewtest.data_model.prepared_main` 
 
