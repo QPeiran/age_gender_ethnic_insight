@@ -91,8 +91,17 @@ query_job = bq_client.query(query_refine_data, job_config=job_config)
 query_job.result()  
 print("Step 2 Complete")
 
-#### {query 3}
-
+#### Join Lookup Area table
+query_lookup_data = """
+SELECT Region, Age_group, Age, count FROM `countdownintervewtest.data_model.model_census_data` AS A
+LEFT JOIN `countdownintervewtest.CDI_test.LookupArea` AS B
+ON (
+  A.Area_code = B.Code
+)
+"""
+query_job = bq_client.query(query_lookup_data, job_config=job_config)
+query_job.result()  
+print("Step 3 Complete")
 
 
 print("Query results loaded to the table {}".format(table_id))

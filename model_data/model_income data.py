@@ -13,7 +13,7 @@ WITH median AS ( SELECT Region, Age_Group, Ethnic_Group, Measure, Value as Media
 WHERE Measure = "Median Weekly Earnings"),
      average AS (SELECT Region, Age_Group, Ethnic_Group, Measure, Value as Average_income FROM `countdownintervewtest.CDI_test.income_table`
 WHERE Measure = "Average Weekly Earnings")
-SELECT median.Region, median.Age_GRoup, median.Ethnic_Group, median.Median_income, average.Average_income FROM median
+SELECT median.Region, median.Age_GRoup, median.Median_income, average.Average_income FROM median
 FULL JOIN
 average
 ON
